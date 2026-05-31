@@ -427,3 +427,20 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# --- assettrack project-specific additions ---
+
+# Local SQLite database files (runtime data must never be committed)
+*.db
+*.db-shm
+*.db-wal
+/data/
+
+# Build output staging
+/dist/
+
+# Rider / VS Code local
+.idea/
+
+# OS noise
+.DS_Store
