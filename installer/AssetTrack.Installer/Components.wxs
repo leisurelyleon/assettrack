@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="AssetTrack" />
+    </StandardDirectory>
+  </Fragment>
+
+  <Fragment>
+    <!--
+      The published, self-contained AssetTrack.App payload is harvested into
+      this component group by the release workflow (via heat/files harvesting).
+      The executable is the install's key file.
+    -->
+    <ComponentGroup Id="AppComponents" Directory="INSTALLFOLDER">
+      <Component Id="MainExecutable" Guid="A7C4E2B1-5D38-4F9C-9E22-1B6F3A8C2D44">
+        <File Id="AssetTrackExe" Source="$(var.PublishDir)\AssetTrack.App.exe" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+</Wix>
